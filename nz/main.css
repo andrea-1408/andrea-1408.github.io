@@ -12,5 +12,9 @@ main {
 
 article {
 padding: 1em;
-text-align: justify;
+;
+}
+
+article p {
+    text-align: justify
 }
