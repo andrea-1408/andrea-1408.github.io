@@ -10,6 +10,13 @@ console.log(coords[0]);
 console.log(coords[1]);
 console.log(coords.length);
 
+console.log("text");
+console.log('text');
+console.log('id="map"');
+console.log(`latitude = ${lat}`);
+
+let popup = 'text'
+console.log(`text = ${lat,lng}`);
 
 let map = L.map('map').setView(lat, lng, zoom);
 
