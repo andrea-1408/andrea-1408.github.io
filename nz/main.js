@@ -5,6 +5,14 @@ let lng = 176.070833;
 let zoom = 11;
 
 let coords = [-38.684444, 176.070833];
+let popup = `
+    <h3>Taupo</h3>
+    <ul>
+    <li>geogr. Länge: ${lng}</li>
+    <li>geogr. Breite: ${lat}</li>
+    </ul>
+    `;
+
 console.log(coords);
 console.log(coords[0]);
 console.log(coords[1]);
@@ -15,8 +23,6 @@ console.log('text');
 console.log('id="map"');
 console.log(`latitude = ${lat}`);
 
-let popup = 'text'
-console.log(`text = ${lat,lng}`);
 
 let map = L.map('map').setView(lat, lng, zoom);
 
@@ -25,5 +31,5 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 }).addTo(map);
 
 L.marker([lat, lng]).addTo(map)
-    .bindPopup('<h3>Taupo (Stadt)</h3>')
+    .bindPopup(popup)
     .openPopup();
