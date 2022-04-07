@@ -8,8 +8,8 @@ let coords = [-38.684444, 176.070833];
 let popup = `
     <h3>Taupo</h3>
     <ul>
-    <li>geogr. Länge: ${lng}</li>
-    <li>geogr. Breite: ${lat}</li>
+    <li>geogr.Länge: ${lng}</li>
+    <li>geogr.Breite: ${lat}</li>
     </ul>
     `;
 
