@@ -22,6 +22,8 @@ console.log("text");
 console.log('text');
 console.log('id="map"');
 console.log(`latitude = ${lat}`);
+console.log(ETAPPEN);
+
 
 
 let map = L.map('map').setView(lat, lng, zoom);
