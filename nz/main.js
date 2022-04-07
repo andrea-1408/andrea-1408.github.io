@@ -6,23 +6,24 @@ let zoom = 11;
 
 let coords = [-38.684444, 176.070833];
 
-console.log(coords);
-console.log(coords[0]);
-console.log(coords[1]);
-console.log(coords.length);
+//console.log(coords);
+//console.log(coords[0]);
+//console.log(coords[1]);
+//console.log(coords.length);
 
-console.log("text");
-console.log('text');
-console.log('id="map"');
-console.log(`latitude = ${lat}`);
-console.log(ETAPPEN);
-console.log(ETAPPEN[0]);
-console.log(ETAPPEN[0].nr);
-console.log(ETAPPEN[0].github);
-console.log(ETAPPEN[0].titel);
-console.log(ETAPPEN[0].wikipedia);
-console.log(ETAPPEN[0].lat);
-console.log(ETAPPEN[0].lng);
+//console.log("text");
+//console.log('text');
+//console.log('id="map"');
+//console.log(`latitude = ${lat}`);
+
+//console.log(ETAPPEN);
+//console.log(ETAPPEN[0]);
+//console.log(ETAPPEN[0].nr);
+//console.log(ETAPPEN[0].github);
+//console.log(ETAPPEN[0].titel);
+//console.log(ETAPPEN[0].wikipedia);
+//console.log(ETAPPEN[0].lat);
+//console.log(ETAPPEN[0].lng);
 
 
 let popup = `
@@ -47,3 +48,10 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
 L.marker([lat, lng]).addTo(map)
     .bindPopup(popup)
     .openPopup();
+
+
+for(let etappe of ETAPPEN) {
+    //console.log(etappe);
+    L.marker([etappe.lat, etappe.lng]).addTo(map);
+
+}
