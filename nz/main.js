@@ -50,7 +50,7 @@ L.marker([lat, lng]).addTo(map)
     .openPopup();
 
 
-for(let etappe of ETAPPEN) {
+for (let etappe of ETAPPEN) {
     let popup = `
     <h3>${etappe.titel} (Etappe ${etappe.nr})</h3>
     <ul>
@@ -66,8 +66,8 @@ for(let etappe of ETAPPEN) {
 }
 
 //DOC Hütten anzeigen
-for(let hut of HUTS) {
+for (let hut of HUTS) {
     let popup = `
-        <h3>${hut.name}</h3>`; 
-    L.circleMarker([hut.lat, hut.lng]).addTo(map).bindPopup(popup);   
+        <h3>${hut.name}</h3>`;
+    L.circleMarker([hut.lat, hut.lng]).addTo(map).bindPopup(popup);
 }
