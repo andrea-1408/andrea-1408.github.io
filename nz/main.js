@@ -26,7 +26,7 @@ let coords = [-38.684444, 176.070833];
 //console.log(ETAPPEN[0].lng);
 
 
-let popup = `
+/*let popup = `
     <h3>${ETAPPEN[0].titel} (Etappe ${ETAPPEN[0].nr})</h3>
     <ul>
         <li>geogr. Länge: ${ETAPPEN[0].lng}</li>
@@ -36,7 +36,7 @@ let popup = `
 
         </ul>
     `;
-
+*/
 
 
 let map = L.map('map').setView(coords, zoom);
@@ -45,9 +45,9 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-L.marker([lat, lng]).addTo(map)
+/*L.marker([lat, lng]).addTo(map)
     .bindPopup(popup)
-    .openPopup();
+    .openPopup(); */
 
 
 for (let etappe of ETAPPEN) {
@@ -61,24 +61,44 @@ for (let etappe of ETAPPEN) {
 
         </ul>
     `;
-    //console.log(etappe);
-    L.marker([etappe.lat, etappe.lng]).addTo(map).bindPopup(popup);
+      //console.log(etappe);
+      let navClass = "etappenLink";
+      let mrk = L.marker([etappe.lat, etappe.lng]).addTo(map).bindPopup(popup);
+      if (etappe.nr ==  5) {
+    mrk.openPopup ();
+    navClass = "etappenLink etappeAktuell";
+  
+      }
+      //Etappennavigation erweitern
+  
+      let link = `<a href="https://${etappe.github}.github.io/nz/"
+      class= "${navClass}" title="${etappe.titel}">${etappe.nr}</a>`;
+      document.querySelector("#navigation").innerHTML += link;
+    }
 
-    // Etappennavigation erweitern
-    let link = `<a href="https://${etappe.github}.github.io/nz/" class="etappenLink" title="${etappe.titel}">${etappe.nr}</a>`;
-    document.querySelector("#navigation").innerHTML += link;
-}
 
 //DOC Hütten anzeigen
 for (let hut of HUTS) {
     let popup = `
-        <h3>${hut.name}</h3>
-        <h4>${hut.region}</h3>
-        <hr>
-        <p>${hut.info}</p>
-        <img src="${hut.image}" alt="Vorschaubild">
-        <hr>
-        <a href="${hut.link}" target="Neuseeland">Link zur Hütte</a>
-        `;
-    L.circleMarker([hut.lat, hut.lng]).addTo(map).bindPopup(popup);
+    <h3>${hut.name}</h3>
+    <h4>${hut.region}</h4>
+    <hr>
+    <p>${hut.info}</p>
+    <img src="${hut.image}" alt="Vorschaubild">
+    <hr>
+    <a href="${hut.link}" target=Neuseeland> Link zur Hütte</a>
+
+    `;
+    let statusColor;
+    if (hut.open == true){
+        statusColor = "green";
+    } else {
+        statusColor = "red";
+    }
+    L.circleMarker([hut.lat, hut.lng],{
+        color: statusColor
+
+    }
+        ).addTo(map).bindPopup(popup);
+
 }
