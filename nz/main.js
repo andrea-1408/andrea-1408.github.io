@@ -104,6 +104,12 @@ L.control.scale({
 
 L.control.fullscreen().addTo(map);
 
+//Minimap hinzugefügt
+let miniMap = new L.Control.MiniMap (
+    L.tileLayer.provider("Stadia.OSMBright")
+    
+    ).addTo(map);
+
 //Startlayer 
 let startLayer = L.tileLayer.provider('OpenTopoMap');
 
@@ -114,3 +120,5 @@ let layerControl = L.control.layers ({
     "Thunderforesr Outdoors":L.tileLayer.provider ("Thunderforest.Outdoors"),
 }). addTo(map);
 layerControl.expand();
+
+let sightLayer = L.featureGroup();
