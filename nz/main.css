@@ -86,9 +86,10 @@ footer .next {
     text-align: center;
     margin-top: 0.5em;
     display: inline-block;
+    margin-right: 2px;
 }
 
-.etappeAktuell{
+.etappeAktuell {
     background: silver;
     color: white;
     text-decoration: none;
