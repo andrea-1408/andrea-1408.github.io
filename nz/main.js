@@ -117,7 +117,7 @@ let layerControl = L.control.layers ({
     "OpenTopoMap": startLayer,
     "Open Street Map (DE)": L.tileLayer.provider ("OpenStreetMap.DE"),
     "Open Street Map (FR)": L.tileLayer.provider ("OpenStreetMap.France"),
-    "Thunderforesr Outdoors":L.tileLayer.provider ("Thunderforest.Outdoors"),
+    "Thunderforest Outdoors":L.tileLayer.provider ("Thunderforest.Outdoors"),
 }). addTo(map);
 layerControl.expand();
 
