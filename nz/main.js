@@ -4,7 +4,9 @@ let lat = -38.684444;
 let lng = 176.070833;
 let zoom = 11;
 
-let coords = [-38.684444, 176.070833];
+let coords = [
+    ETAPPEN[14].lat,
+    ETAPPEN[14].lng ]
 
 //console.log(coords);
 //console.log(coords[0]);
@@ -26,7 +28,7 @@ let coords = [-38.684444, 176.070833];
 //console.log(ETAPPEN[0].lng);
 
 
-/*let popup = `
+let popup = `
     <h3>${ETAPPEN[0].titel} (Etappe ${ETAPPEN[0].nr})</h3>
     <ul>
         <li>geogr. Länge: ${ETAPPEN[0].lng}</li>
@@ -36,18 +38,12 @@ let coords = [-38.684444, 176.070833];
 
         </ul>
     `;
-*/
-
 
 let map = L.map('map').setView(coords, zoom);
 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
-
-/*L.marker([lat, lng]).addTo(map)
-    .bindPopup(popup)
-    .openPopup(); */
 
 
 for (let etappe of ETAPPEN) {
@@ -64,7 +60,7 @@ for (let etappe of ETAPPEN) {
       //console.log(etappe);
       let navClass = "etappenLink";
       let mrk = L.marker([etappe.lat, etappe.lng]).addTo(map).bindPopup(popup);
-      if (etappe.nr ==  5) {
+      if (etappe.nr ==  14) {
     mrk.openPopup ();
     navClass = "etappenLink etappeAktuell";
   
