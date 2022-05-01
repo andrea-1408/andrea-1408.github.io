@@ -60,7 +60,7 @@ for (let etappe of ETAPPEN) {
       //console.log(etappe);
       let navClass = "etappenLink";
       let mrk = L.marker([etappe.lat, etappe.lng]).addTo(map).bindPopup(popup);
-      if (etappe.nr ==  14) {
+      if (etappe.nr ==  15) {
     mrk.openPopup ();
     navClass = "etappenLink etappeAktuell";
   
@@ -93,8 +93,6 @@ for (let hut of HUTS) {
     }
     L.circleMarker([hut.lat, hut.lng],{
         color: statusColor
-
-    }
-        ).addTo(map).bindPopup(popup);
+    }).addTo(map).bindPopup(popup);
 
 }
