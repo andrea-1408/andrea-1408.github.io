@@ -102,16 +102,17 @@ L.control.scale({
     imperial: false,
 }).addTo(map);
 
+//Fullscreen-Funktion hinzugefügt
 L.control.fullscreen().addTo(map);
 
 //Minimap hinzugefügt
 let miniMap = new L.Control.MiniMap (
-    L.tileLayer.provider("Stadia.OSMBright")
+    L.tileLayer.provider("OpenTopoMap"),
+    {"toggleDisplay" : "True"}).addTo(map);
     
-    ).addTo(map);
 
-//Startlayer 
-let startLayer = L.tileLayer.provider('OpenTopoMap');
+//Startlayer
+let startLayer = L.tileLayer.provider("OpenTopoMap");
 
 let layerControl = L.control.layers ({
     "OpenTopoMap": startLayer,
@@ -121,4 +122,3 @@ let layerControl = L.control.layers ({
 }). addTo(map);
 layerControl.expand();
 
-let sightLayer = L.featureGroup();
