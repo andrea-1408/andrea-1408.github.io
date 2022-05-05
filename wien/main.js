@@ -156,6 +156,21 @@ let stephansdom = {
         layerControl.addOverlay(overlay, "Hotels und Unterkünfte");
         overlay.addTo(map);
 
-        L.geoJSON(geojson).addTo(overlay);
+        L.geoJSON(geojson, {
+            pointToLayer: function(geoJsonPoint, latlng) {
+                console.log(geoJsonPoint.properties);
+                let popup = `
+                <strong>${geoJsonPoint.properties.BETRIEB}</strong><br>
+                Station ${geoJsonPoint.properties.ADRESSE}
+                `;
+                return L.marker(latlng, {
+                    icon: L.icon({
+                        iconUrl: `icons/hotel.png`,
+                        iconAnchor: [16, 37],
+                        popupAnchor: [0, -37]
+                    })
+                }).bindPopup(popup);
+            }
+        }).addTo(overlay);
      }
-    //loadHotels("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:UNTERKUNFTOGD&srsName=EPSG:4326&outputFormat=json");
+    loadHotels("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:UNTERKUNFTOGD&srsName=EPSG:4326&outputFormat=json");
