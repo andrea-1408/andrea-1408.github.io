@@ -34,12 +34,12 @@ let stephansdom = {
   }). addTo(map);
   layerControl.expand();
   
-  let sightLayer = L.featureGroup();
-  
+  /*let sightLayer = L.featureGroup();
   layerControl.addOverlay(sightLayer, "Sehenswürdigkeit");
   
   let mrk = L.marker ([stephansdom.lat, stephansdom.lng]). addTo(sightLayer);
-  sightLayer.addTo(map);
+  
+  sightLayer.addTo(map); */
   
   //Maßstab hinzugefügt
   L.control.scale({
