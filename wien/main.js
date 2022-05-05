@@ -60,6 +60,7 @@ let stephansdom = {
         let geojson = await response.json();
         //console.log(geojson);
 
+        //add to overlay
         let overlay = L.featureGroup();
         layerControl.addOverlay(overlay, "Sehenswürdigkeit");
         overlay.addTo(map);
@@ -109,3 +110,17 @@ let stephansdom = {
         L.geoJSON(geojson).addTo(overlay);
     }
     loadZones("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FUSSGEHERZONEOGD&srsName=EPSG:4326&outputFormat=json");
+
+
+     //Hotels und Unterkünfte
+     async function loadHotels(url) {
+        let response = await fetch(url);
+        let geojson = await response.json();
+
+        let overlay = L.featureGroup();
+        layerControl.addOverlay(overlay, "Hotels und Unterkünfte");
+        overlay.addTo(map);
+
+        L.geoJSON(geojson).addTo(overlay);
+    }
+    loadHotels("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:UNTERKUNFTOGD&srsName=EPSG:4326&outputFormat=json");
