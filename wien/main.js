@@ -170,6 +170,16 @@ let stephansdom = {
                 <a href="${geoJsonPoint.properties.WEBLINK1}">Weblink</a>
                 
                 `;
+                let BETRIEBSART;
+                if (H == true){
+                    statusColor = "purple"; iconUrl = `icons/loading_0star.png`;
+                } else if (P == true){
+                    statusColor = "purple"; iconUrl = `icons/loading_0star.png`;
+                } else (A == true)
+                    {statusColor = "purple"; iconUrl = `icons/apartment-2.png`
+                ;
+            }
+        
                 return L.marker(latlng, {
                     icon: L.icon({
                         iconUrl: `icons/hotel.png`,
