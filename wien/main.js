@@ -161,24 +161,24 @@ let stephansdom = {
                 console.log(geoJsonPoint.properties);
                 let popup = `
                 <strong>${geoJsonPoint.properties.BETRIEB}</strong><br>
-                Betriebsart ${geoJsonPoint.properties.BETRIEBSART}<br>
-                Kategorie ${geoJsonPoint.properties.KATEGORIE_TXT}<br>
-                Adresse ${geoJsonPoint.properties.ADRESSE}<br>
-                Telefonnummer ${geoJsonPoint.properties.KONTAKT_TEL}<br>
+                ${geoJsonPoint.properties.BETRIEBSART_TXT}<br>
+                ${geoJsonPoint.properties.KATEGORIE_TXT}<br>
+                Adresse: ${geoJsonPoint.properties.ADRESSE}<br>
+                Telefonnummer: ${geoJsonPoint.properties.KONTAKT_TEL}<br>
                 <hr>
                 <a href="${geoJsonPoint.properties.KONTAKT_EMAIL}">E-Mail</a><br>
                 <a href="${geoJsonPoint.properties.WEBLINK1}">Weblink</a>
                 
                 `;
-                let BETRIEBSART;
-                if (H == true){
-                    statusColor = "purple"; iconUrl = `icons/loading_0star.png`;
-                } else if (P == true){
-                    statusColor = "purple"; iconUrl = `icons/loading_0star.png`;
-                } else (A == true)
-                    {statusColor = "purple"; iconUrl = `icons/apartment-2.png`
+                /*let BETRIEBSART;
+                if (BETRIEBSART == "H"){
+                    statusColor = "purple"; // iconUrl = `icons/loading_0star.png`;
+                } else if (BETRIEBSART == "P"){
+                    statusColor = "purple"; // iconUrl = `icons/loading_0star.png`;
+                } else (BETRIEBSART == "A")
+                    {statusColor = "purple"; // iconUrl = `icons/apartment-2.png`
                 ;
-            }
+                    }*/
         
                 return L.marker(latlng, {
                     icon: L.icon({
