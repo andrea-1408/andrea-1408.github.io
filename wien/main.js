@@ -162,11 +162,11 @@ let stephansdom = {
                 let popup = `
                 <strong>${geoJsonPoint.properties.BETRIEB}</strong><br>
                 Betriebsart ${geoJsonPoint.properties.BETRIEBSART}<br>
-                Kategorie ${geoJsonPoint.properties.KATEGORIE_TXT}>br>
-                Adresse ${geoJsonPoint.properties.ADRESSE}
-                Telefonnummer ${geoJsonPoint.properties.KONTAKT_TEL}
+                Kategorie ${geoJsonPoint.properties.KATEGORIE_TXT}<br>
+                Adresse ${geoJsonPoint.properties.ADRESSE}<br>
+                Telefonnummer ${geoJsonPoint.properties.KONTAKT_TEL}<br>
                 <hr>
-                <a href="${geoJsonPoint.properties.KONTAKT_EMAIL}">E-Mail Link</a><br>
+                <a href="${geoJsonPoint.properties.KONTAKT_EMAIL}">E-Mail</a><br>
                 <a href="${geoJsonPoint.properties.WEBLINK1}">Weblink</a>
                 
                 `;
