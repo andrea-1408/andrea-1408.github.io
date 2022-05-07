@@ -161,7 +161,14 @@ let stephansdom = {
                 console.log(geoJsonPoint.properties);
                 let popup = `
                 <strong>${geoJsonPoint.properties.BETRIEB}</strong><br>
-                Station ${geoJsonPoint.properties.ADRESSE}
+                Betriebsart ${geoJsonPoint.properties.BETRIEBSART}<br>
+                Kategorie ${geoJsonPoint.properties.KATEGORIE_TXT}>br>
+                Adresse ${geoJsonPoint.properties.ADRESSE}
+                Telefonnummer ${geoJsonPoint.properties.KONTAKT_TEL}
+                <hr>
+                <a href="${geoJsonPoint.properties.KONTAKT_EMAIL}">E-Mail Link</a><br>
+                <a href="${geoJsonPoint.properties.WEBLINK1}">Weblink</a>
+                
                 `;
                 return L.marker(latlng, {
                     icon: L.icon({
