@@ -193,7 +193,9 @@ async function loadHotels(url) {
     let response = await fetch(url);
     let geojson = await response.json();
 
-    let overlay = L.markerClusterGroup();
+    let overlay = L.markerClusterGroup({
+        disableClusteringAtZoom: 17
+    });
     layerControl.addOverlay(overlay, "Hotels und Unterkünfte");
     overlay.addTo(map);
 
