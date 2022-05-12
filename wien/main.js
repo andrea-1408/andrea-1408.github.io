@@ -131,32 +131,32 @@ async function loadLines(url) {
     overlay.addTo(map);
 
     L.geoJSON(geojson, {
-        style: function(feature) {
-        let colors = {
-            "Red Line": "#FF4136",
-            "Yellow Line": "#FFDC00",
-            "Blue Line": "0074D9",
-            "Green Line": "#AAAAAA",
-            "Orange Line": "#FF851B"
-        };
-    
-    return {
-        color: `${colors[feature.properties.LINE_NAME]}`,
-        weight: 4,
-        dashArray: [10,6]
-        ,
-    }
-}
+        style: function (feature) {
+            let colors = {
+                "Red Line": "#FF4136",
+                "Yellow Line": "#FFDC00",
+                "Blue Line": "0074D9",
+                "Green Line": "#AAAAAA",
+                "Orange Line": "#FF851B"
+            };
+
+            return {
+                color: `${colors[feature.properties.LINE_NAME]}`,
+                weight: 4,
+                dashArray: [10, 6]
+            }
+        }
 
     }).bindPopup(function (layer) {
         return `
-        <h4>${layer.feature.properties.LINE_NAME}</h4>
-        von: ${layer.feature.properties.FROM_NAME}
-        <br>
-        nach: ${layer.feature.properties.TO_NAME};`
+            <h4>${layer.feature.properties.LINE_NAME}</h4>
+            von: ${layer.feature.properties.FROM_NAME}
+            <br>
+            nach: ${layer.feature.properties.TO_NAME}`;
     }).addTo(overlay);
 }
-//loadLines("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TOURISTIKLINIEVSLOGD&srsName=EPSG:4326&outputFormat=json");
+
+loadLines("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TOURISTIKLINIEVSLOGD&srsName=EPSG:4326&outputFormat=json");
 
 
 //Fußgängerzonen Wien
