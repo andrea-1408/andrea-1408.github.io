@@ -171,12 +171,12 @@ async function loadZones(url) {
     L.geoJSON(geojson).bindPopup(function(layer) {
         return `
         <h4>Fußgängerzone ${layer.feature.properties.ADRESSE}<h4/>
-        <p>${layer.feature.properties.ZEITRAUM}</p>
-        <p>${layer.feature.properties.AUSN_TEXT}</p>
+        <p>${layer.feature.properties.ZEITRAUM || ""}</p>
+        <p>${layer.feature.properties.AUSN_TEXT || ""}</p>
         `;
     }).addTo(overlay);
 }
-//loadZones("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FUSSGEHERZONEOGD&srsName=EPSG:4326&outputFormat=json");
+loadZones("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:FUSSGEHERZONEOGD&srsName=EPSG:4326&outputFormat=json");
 
 
 //Hotels und Unterkünfte
