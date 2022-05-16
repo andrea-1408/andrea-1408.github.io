@@ -115,7 +115,7 @@ async function loadStops(url) {
                     popupAnchor: [0, -37]
                 })
             }).bindPopup(popup);
-        }
+        } 
     }).addTo(overlay);
 };
 loadStops("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TOURISTIKHTSVSLOGD&srsName=EPSG:4326&outputFormat=json");
