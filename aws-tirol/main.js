@@ -60,10 +60,7 @@ async function loadData(url) {
     let response = await fetch(url);
     let geojson = await response.json();
 
-    // add to overlay
-    let overlay = L.featureGroup();
-    layerControl.addOverlay(overlay, "Wetterstation");
-    overlay.addTo(map);
+ 
 
 
     // Wetterstationen mit Icons und Popups implementieren
