@@ -52,7 +52,6 @@ const COLORS = {
             min: 30,
             max: 50,
             color: "#fa3c96"
-        }, 
-    
+        }
     ]
 }
