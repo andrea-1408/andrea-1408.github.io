@@ -98,7 +98,6 @@ let drawTemperature = function(geojson) {
             };
         },
         pointToLayer: function(geoJsonPoint, latlng) {
-            console.log(geoJsonPoint.properties);
                 let popup = `
                 <strong>${geoJsonPoint.properties.name}</strong><br>
                 (${geoJsonPoint.geometry.coordinates[2]} m ü.NN)
@@ -110,7 +109,7 @@ let drawTemperature = function(geojson) {
                 return L.marker(latlng, {
                 icon: L.divIcon({
                     className: "aws-div-icon",
-                    html: `<span>${geoJsonPoint.properties.LT.toFixed(1)}</span>`
+                    html: `<span style="background-color:${color}">${geoJsonPoint.properties.LT.toFixed(1)}</span>`
                     })
              }).bindPopup(popup);
             }
