@@ -79,9 +79,10 @@ L.geoJSON(geojson, {
             (${geoJsonPoint.geometry.coordinates[2]} m ü.NN)<br>
             Temperatur: ${geoJsonPoint.properties.LT} °C<br>
             Schneehöhe: ${geoJsonPoint.properties.HS} cm<br>
-            Windgeschwindigkeit: ${geoJsonPoint.properties.WG} km/h<br>
+            Windgeschwindigkeit: ${geoJsonPoint.properties.WG*3.6} km/h<br>
             Windrichtung: ${geoJsonPoint.properties.WR} °<br>
-            Relative Luftfeuchtigkeit: ${geoJsonPoint.properties.humidity} %
+            Relative Luftfeuchtigkeit: ${geoJsonPoint.properties.RH} % <br>
+            <a href="https://wiski.tirol.gv.at/lawine/grafiken/1100/standard/dreitage/${geoJsonPoint.properties.plot}.png"  target="_blank">Wetterverlaufsgrafik</a>
             `;
             return L.marker(latlng, {
             icon: L.icon({
@@ -194,14 +195,14 @@ let drawHumidity = function (geojson) {
                 (${geoJsonPoint.geometry.coordinates[0]} %)
                 `;
                 let color = getColor(
-                    geoJsonPoint.properties.RL,
+                    geoJsonPoint.properties.RH,
                     COLORS.humidity
                 );
                 
                 return L.marker(latlng, {
                 icon: L.divIcon({
                     className: "aws-div-icon",
-                    html: `<span style="background-color:${color}">${geoJsonPoint.properties.RL.toFixed(0)}</span>`
+                    html: `<span style="background-color:${color}">${geoJsonPoint.properties.RH.toFixed(0)}</span>`
                     })
              }).bindPopup(popup);
             }
@@ -219,5 +220,6 @@ async function loadData(url) {
  drawTemperature(geojson);
  drawSnowheight(geojson);
  drawWind(geojson);
+ drawHumidity(geojson);
 }
 loadData("https://static.avalanche.report/weather_stations/stations.geojson"); 
