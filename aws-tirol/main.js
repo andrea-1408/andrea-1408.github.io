@@ -223,3 +223,16 @@ async function loadData(url) {
  drawHumidity(geojson);
 }
 loadData("https://static.avalanche.report/weather_stations/stations.geojson"); 
+
+
+//Rainviewer
+L.control.rainviewer({
+    position: 'bottomleft',
+    nextButtonText: '>',
+    playStopButtonText: 'Play/Stop',
+    prevButtonText: '<',
+    positionSliderLabelText: "Stunde:",
+    opacitySliderLabelText: "Transparenz:",
+    animationInterval: 500,
+    opacity: 0.5
+}).addTo(map);
