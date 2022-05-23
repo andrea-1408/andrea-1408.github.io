@@ -76,7 +76,12 @@ L.geoJSON(geojson, {
         console.log(geoJsonPoint.properties);
             let popup = `
             <strong>${geoJsonPoint.properties.name}</strong><br>
-            (${geoJsonPoint.geometry.coordinates[2]} m ü.NN)
+            (${geoJsonPoint.geometry.coordinates[2]} m ü.NN)<br>
+            Temperatur: ${geoJsonPoint.properties.LT} °C<br>
+            Schneehöhe: ${geoJsonPoint.properties.HS} cm<br>
+            Windgeschwindigkeit: ${geoJsonPoint.properties.WG} km/h<br>
+            Windrichtung: ${geoJsonPoint.properties.WR} °<br>
+            Relative Luftfeuchtigkeit: ${geoJsonPoint.properties.humidity} %
             `;
             return L.marker(latlng, {
             icon: L.icon({
