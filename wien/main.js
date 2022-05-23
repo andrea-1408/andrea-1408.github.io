@@ -8,14 +8,6 @@ let stephansdom = {
 
 let startLayer = L.tileLayer.provider("BasemapAT.grau");
 
-let map = L.map("map", {
-    center: [stephansdom.lat, stephansdom.lng],
-    zoom: 16,
-    layers: [
-        startLayer
-    ],
-});
-
 let layerControl = L.control.layers({
     "BasemapAT Grau": startLayer,
     "Basemap Standard": L.tileLayer.provider("BasemapAT.basemap"),
@@ -27,11 +19,17 @@ let layerControl = L.control.layers({
     "Basemap mit Orthofoto und Beschriftung": L.layerGroup([
             L.tileLayer.provider("BasemapAT.orthofoto"),
             L.tileLayer.provider("BasemapAT.overlay"),
-
         ]
-
     )
-}).addTo(map);
+});
+let map = L.map("map", {
+        center: [stephansdom.lat, stephansdom.lng],
+        zoom: 16,
+        layers: [
+            startLayer
+        ],
+    })
+    .addTo(map);
 layerControl.expand();
 
 /*let sightLayer = L.featureGroup();
@@ -115,7 +113,7 @@ async function loadStops(url) {
                     popupAnchor: [0, -37]
                 })
             }).bindPopup(popup);
-        } 
+        }
     }).addTo(overlay);
 };
 loadStops("https://data.wien.gv.at/daten/geo?service=WFS&request=GetFeature&version=1.1.0&typeName=ogdwien:TOURISTIKHTSVSLOGD&srsName=EPSG:4326&outputFormat=json");
@@ -169,15 +167,15 @@ async function loadZones(url) {
     overlay.addTo(map);
 
     L.geoJSON(geojson, {
-        style: function(feature) {
-        return {
-            color: "#F012BE",
-            weight: 1,
-            opacity: 0.1,
-            fillOpacity: 0.1
+        style: function (feature) {
+            return {
+                color: "#F012BE",
+                weight: 1,
+                opacity: 0.1,
+                fillOpacity: 0.1
+            }
         }
-        }
-    }).bindPopup(function(layer) {
+    }).bindPopup(function (layer) {
         return `
         <h4>Fußgängerzone ${layer.feature.properties.ADRESSE}<h4/>
         <p>${layer.feature.properties.ZEITRAUM || ""}</p><!-- logical or operator -->
@@ -195,7 +193,7 @@ async function loadHotels(url) {
     console.log(geojson.features);
 
     //Hotels nach Namen sortieren
-    geojson.features.sort(function(a, b) {
+    geojson.features.sort(function (a, b) {
         return a.properties.BETRIEB.toLowerCase() > b.properties.BETRIEB.toLowerCase()
     })
 
@@ -254,9 +252,9 @@ async function loadHotels(url) {
 
     let form = document.querySelector("#searchForm");
     console.log(form.suchen);
-    form.suchen.onclick = function() {
+    form.suchen.onclick = function () {
         console.log(form.hotel.value)
-        hotelsLayer.eachLayer(function(marker) {
+        hotelsLayer.eachLayer(function (marker) {
             //console.log(marker)
             //console.log(marker.getLatLng())
             //console.log(marker.getPopup())
