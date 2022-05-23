@@ -53,7 +53,7 @@ L.control.scale({
 L.control.fullscreen().addTo(map);
 
 // diese Layer beim Laden anzeigen
-overlays.wind.addTo(map);
+overlays.stations.addTo(map);
 
 //Farben nach Wert und Schwellen ermitteln
 let getColor = function(value, ramp){
